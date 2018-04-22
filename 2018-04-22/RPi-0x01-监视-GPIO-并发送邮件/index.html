@@ -6,23 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="fidiots.github.io">
-  <title>HD - 0x01 Bits $1111^2 = 11100001$ | Fidiots</title>
+  <title>RPi - 0x01 监视 GPIO 并发送邮件 | Fidiots</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="once we get a name for it, we will get power over it!— Patrick H. Winston  最右边那个 $x \&amp;amp; (x - 1)$  将最右边的 1 置0（0101_1000 -&amp;gt; 01010000），可用于快速判断 $2^n$ $x \&amp;amp; (x + 1)$ 可用于快速判断 $2^n -1$ $x \&amp;amp; (">
-<meta name="keywords" content="HD,Computer">
+  <meta name="description" content="我的目的是想说明，这一天空机器并不是一种天赐造物或者生命体，它只不过是钟表一类的机械装置（而那些相信钟表有灵魂的人却将这一工作说成是其创造者的荣耀），在很大程度上，这里多种多样的运动都是由最简单的物质力量产生的，就像钟表里所有活动都是由一个发条产生的一样。— 约翰尼斯·开普勒（给 Herwart von Hohenburg 的信， 1605）  受友人之托，在树莓派上加一个发送邮件进行报警的功能">
+<meta name="keywords" content="Hardware,Raspberry pi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="HD - 0x01 Bits $1111^2 = 11100001$">
-<meta property="og:url" content="fidiots.github.io/2018-03-31/HD-0x01-Bits/index.html">
+<meta property="og:title" content="RPi - 0x01 监视 GPIO 并发送邮件">
+<meta property="og:url" content="fidiots.github.io/2018-04-22/RPi-0x01-监视-GPIO-并发送邮件/index.html">
 <meta property="og:site_name" content="Fidiots">
-<meta property="og:description" content="once we get a name for it, we will get power over it!— Patrick H. Winston  最右边那个 $x \&amp;amp; (x - 1)$  将最右边的 1 置0（0101_1000 -&amp;gt; 01010000），可用于快速判断 $2^n$ $x \&amp;amp; (x + 1)$ 可用于快速判断 $2^n -1$ $x \&amp;amp; (">
+<meta property="og:description" content="我的目的是想说明，这一天空机器并不是一种天赐造物或者生命体，它只不过是钟表一类的机械装置（而那些相信钟表有灵魂的人却将这一工作说成是其创造者的荣耀），在很大程度上，这里多种多样的运动都是由最简单的物质力量产生的，就像钟表里所有活动都是由一个发条产生的一样。— 约翰尼斯·开普勒（给 Herwart von Hohenburg 的信， 1605）  受友人之托，在树莓派上加一个发送邮件进行报警的功能">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8">
 <meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f449.png?v8">
-<meta property="og:image" content="fidiots.github.io/2018-03-31/HD-0x01-Bits/img/hakmem175.png">
-<meta property="og:updated_time" content="2018-04-07T12:07:35.691Z">
+<meta property="og:updated_time" content="2018-04-22T16:29:22.319Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="HD - 0x01 Bits $1111^2 = 11100001$">
-<meta name="twitter:description" content="once we get a name for it, we will get power over it!— Patrick H. Winston  最右边那个 $x \&amp;amp; (x - 1)$  将最右边的 1 置0（0101_1000 -&amp;gt; 01010000），可用于快速判断 $2^n$ $x \&amp;amp; (x + 1)$ 可用于快速判断 $2^n -1$ $x \&amp;amp; (">
-<meta name="twitter:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f449.png?v8">
+<meta name="twitter:title" content="RPi - 0x01 监视 GPIO 并发送邮件">
+<meta name="twitter:description" content="我的目的是想说明，这一天空机器并不是一种天赐造物或者生命体，它只不过是钟表一类的机械装置（而那些相信钟表有灵魂的人却将这一工作说成是其创造者的荣耀），在很大程度上，这里多种多样的运动都是由最简单的物质力量产生的，就像钟表里所有活动都是由一个发条产生的一样。— 约翰尼斯·开普勒（给 Herwart von Hohenburg 的信， 1605）  受友人之托，在树莓派上加一个发送邮件进行报警的功能">
+<meta name="twitter:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8">
   
     <link rel="alternative" href="/atom.xml" title="Fidiots" type="application/atom+xml">
   
@@ -150,20 +150,20 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-HD-0x01-Bits" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-RPi-0x01-监视-GPIO-并发送邮件" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      HD - 0x01 Bits $1111^2 = 11100001$
+      RPi - 0x01 监视 GPIO 并发送邮件
     </h1>
   
 
         
-        <a href="/2018-03-31/HD-0x01-Bits/" class="archive-article-date">
-  	<time datetime="2018-03-31T06:53:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
+        <a href="/2018-04-22/RPi-0x01-监视-GPIO-并发送邮件/" class="archive-article-date">
+  	<time datetime="2018-04-22T12:31:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-22</time>
 </a>
         
       </header>
@@ -171,32 +171,20 @@
     <div class="article-entry" itemprop="articleBody">
       
         <blockquote>
-<p>once we get a name for it, we will get power over it!<br>— Patrick H. Winston</p>
+<p>我的目的是想说明，这一天空机器并不是一种天赐造物或者生命体，它只不过是钟表一类的机械装置（而那些相信钟表有灵魂的人却将这一工作说成是其创造者的荣耀），在很大程度上，这里多种多样的运动都是由最简单的物质力量产生的，就像钟表里所有活动都是由一个发条产生的一样。<br>— 约翰尼斯·开普勒（给 Herwart von Hohenburg 的信， 1605）</p>
 </blockquote>
-<h2 id="最右边那个"><a href="#最右边那个" class="headerlink" title="最右边那个"></a>最右边那个</h2><ul>
-<li>$x \&amp; (x - 1)$  将最右边的 1 置0（0101_1000 -&gt; 01010000），可用于快速判断 $2^n$</li>
-<li>$x \&amp; (x + 1)$ 可用于快速判断 $2^n -1$</li>
-<li>$x \&amp; (-x)$ 仅保留最右边的 1 （0101_1000 -&gt; 0000_1000）</li>
-<li>$\lnot x  \&amp; (x + 1)$ 保留最右边的 0 （1010_0111 -&gt; 0000_1000）</li>
-<li>$\lnot x \&amp; (x - 1), \lnot (x | -x), (x \&amp; -x) - 1$ 将最右边连续的 0 值 1 （0101_1000 -&gt; 0000_0111）</li>
-<li>$x \oplus (x - 1) $ 生成以右边第一个 1 开始的全 1 掩码 （0101_1000 -&gt; 0000_1111）</li>
-<li>$x | (x - 1)$ 将右边第一个 1 向右扩展 （0101_1000 -&gt; 0101_1111）</li>
-<li>$((x | (x - 1)) + 1) \&amp; x$ 将右边连续的 1 置 0 （0101_1000 -&gt; 0100_0000），可判断 $2^j - 2^k$</li>
-</ul>
+<p>受友人之托，在树莓派上加一个发送邮件进行报警的功能（监视 GPIO 口的高电平，然后邮件通知告警信息）。很简单的功能，主要涉及到 <strong>GPIO 口的配置与读取</strong>，<strong>发送邮件</strong> 两个功能，当然人生苦短（我用 Python）。</p>
+<h2 id="GPIO-口的配置与读取"><a href="#GPIO-口的配置与读取" class="headerlink" title="GPIO 口的配置与读取"></a>GPIO 口的配置与读取</h2><p>GPIO (General Purpose I/O Ports) 通用输入/输出口，用于树莓派与真实的物理世界进行交互（控制 LED、产生 PWM、接入外部中断、SPI、IIC …）。通过 GPIO 连接扩展板可以为树莓派接上更多的传感器和控制器，丰富树莓派的功能。</p>
 <a id="more"></a>
-<h2 id="位操作在集合运算中"><a href="#位操作在集合运算中" class="headerlink" title="位操作在集合运算中"></a>位操作在集合运算中</h2><p>n 个元素的集合中，其子集可以用 n 个比特位的二进制数表示（1 表示对应位置元素存在，0 表示不存在）。接下来使用位操作遍历 n 个元素集合的所有 k 个元素的子集，遍历即需要确定第一项、由上一项确定下一项的规则、结束判断。</p>
-<ul>
-<li>第一项，令二进制数的前 k 个比特位为 1</li>
-<li>遍历规则，寻找下一个 k 个比特位为 1 且比上一项大的数</li>
-<li>结束判断，寻找到的数超过 n 比特位表示的最大数</li>
-</ul>
-<p>下列方法出自 MIT HAKMEM 中第 175 条</p>
-<p>$s = x \&amp; -x$</p>
-<p>$r = s + x$</p>
-<p>$y = r | ((( x \otimes r) &gt;&gt; 2) \div s)$</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">unsigned</span> <span class="keyword">int</span> <span class="title">snoob</span> <span class="params">(<span class="keyword">unsigned</span> x)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">unsigned</span> <span class="keyword">int</span> smallest, ripple, ones;</span><br><span class="line">    smallest = x &amp; -x;</span><br><span class="line">    ripple = x + smallest;</span><br><span class="line">    ones = x ^ ripple;</span><br><span class="line">    ones = (ones &gt;&gt; <span class="number">2</span>) / smallest;</span><br><span class="line">    <span class="keyword">return</span> ripple | ones;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="PRi-GPIO"><a href="#PRi-GPIO" class="headerlink" title="PRi.GPIO"></a>PRi.GPIO</h3><p>使用 python 控制树莓派的 GPIO 少不了自带的 RPi.GPIO 模块。now show code here</p>
+<h4 id="电平检测"><a href="#电平检测" class="headerlink" title="电平检测"></a>电平检测</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置 RPi.GPIO 模块的 GPIO 编号使用 BOARD 模式（使得指定的引脚可以兼容不同版本树莓派）</span></span><br><span class="line">GPIO.setmode(GPIO.BOARD)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 指定需要监视的 GPIO 引脚</span></span><br><span class="line">pin = <span class="number">12</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置引脚为输入模式，并设置下拉电阻（10k）</span></span><br><span class="line">GPIO.setup(pin, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取引脚电平（0: GPIO.LOW 1: GPIO.HIGH）</span></span><br><span class="line">ret = GPIO.input(pin)</span><br><span class="line"></span><br><span class="line">print(<span class="string">'current gpio=%d state=%d'</span> % (pin, <span class="number">3</span>))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 释放资源</span></span><br><span class="line">GPIO.cleanup()</span><br></pre></td></tr></table></figure>
+<h4 id="沿检测"><a href="#沿检测" class="headerlink" title="沿检测"></a>沿检测</h4><p>使用电平检测需要软件中进行轮询，然而一般更希望使用事件触发的方式进行异步驱动。沿检测就是用来检测引脚电平变化的事件，使用异步通知的模式。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 定义检测到上升沿的回调函数</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gpio_rising_callback</span><span class="params">(pin)</span>:</span></span><br><span class="line">    print(<span class="string">'rising edge on pin %s'</span>% pin)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 添加需要监听的上升沿引脚</span></span><br><span class="line">GPIO.add_event_detect(pin, GPIO.RISING)</span><br><span class="line"><span class="comment"># 装配回调函数并设置 200 毫秒的消抖</span></span><br><span class="line">GPIO.add_event_callback(pin, gpio_rising_callback, bouncetime=<span class="number">200</span>)</span><br><span class="line"><span class="comment"># 移除监听</span></span><br><span class="line">GPIO.remove_event_detect(pin)</span><br></pre></td></tr></table></figure></p>
+<h2 id="SMTP-发送邮件"><a href="#SMTP-发送邮件" class="headerlink" title="SMTP 发送邮件"></a>SMTP 发送邮件</h2><p>SMTP（Simple Mail Transfer Protocol）简单邮件传输协议， 使用 python 发送邮件需要用到 email 和 smtplib 两个模块， 分别用于 <strong>写信</strong> 和 <strong>投递</strong>。设置 smtplib 模块的日志等级方便 debug（比如遇到 <em>554 DT:SPM</em> 问题 <img class="github-emoji" style="display:inline;vertical-align:text-bottom" title="joy" alt="joy" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f602.png?v8" height="20" width="20">）</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"><span class="keyword">from</span> email.header <span class="keyword">import</span> Header</span><br><span class="line"><span class="keyword">from</span> email.utils <span class="keyword">import</span> formataddr</span><br><span class="line"></span><br><span class="line">smtp_host = <span class="string">"smtp.163.com"</span></span><br><span class="line">smtp_port = <span class="number">465</span></span><br><span class="line">sender = <span class="string">"sender@163.com"</span></span><br><span class="line">sender_token = <span class="string">"sender_token__diff_from_login_password"</span></span><br><span class="line">receiver = <span class="string">'receiver@163.com'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 写信</span></span><br><span class="line">content = <span class="string">'[TOPIC] [TAG] [KEY] [BODY]'</span></span><br><span class="line">message = MIMEText(content, <span class="string">'plain'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">message[<span class="string">'Subject'</span>] = Header(<span class="string">'[MONITOR]'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">message[<span class="string">'From'</span>] = formataddr([<span class="string">"[RASP-001]"</span>, sender])</span><br><span class="line">message[<span class="string">'To'</span>] = formataddr([<span class="string">"[MONITOR CENTER]"</span>, receiver])</span><br><span class="line"></span><br><span class="line"><span class="comment"># 投递</span></span><br><span class="line">server = smtplib.SMTP_SSL(smtp_host, smtp_port)</span><br><span class="line"><span class="comment"># 开启调试，便于发现问题</span></span><br><span class="line">server.set_debuglevel(<span class="number">1</span>)</span><br><span class="line">server.login(sender, sender_token)</span><br><span class="line">server.sendmail(sender, [receiver], message.as_string())</span><br><span class="line"><span class="comment"># 退出</span></span><br><span class="line">server.quit()</span><br></pre></td></tr></table></figure>
+<h2 id="把-RPi-GPIO-和-SMTP-以面向过程的方式揉在一起"><a href="#把-RPi-GPIO-和-SMTP-以面向过程的方式揉在一起" class="headerlink" title="把 RPi.GPIO 和 SMTP 以面向过程的方式揉在一起"></a>把 RPi.GPIO 和 SMTP 以面向过程的方式揉在一起</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env python</span></span><br><span class="line"><span class="comment"># -*- coding:utf-8 -*-</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> RPi.GPIO <span class="keyword">as</span> GPIO</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"><span class="keyword">import</span> traceback</span><br><span class="line"><span class="keyword">import</span> smtplib</span><br><span class="line"><span class="keyword">from</span> email.mime.text <span class="keyword">import</span> MIMEText</span><br><span class="line"><span class="keyword">from</span> email.header <span class="keyword">import</span> Header</span><br><span class="line"><span class="keyword">from</span> email.utils <span class="keyword">import</span> formataddr</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">checkSendMail</span><span class="params">()</span>:</span></span><br><span class="line">    MIN_SEND_PERIOD_S = <span class="number">30</span></span><br><span class="line">    MAX_SEND_COUNT = <span class="number">3</span></span><br><span class="line">    <span class="keyword">global</span> lastSendmailTime</span><br><span class="line">    <span class="keyword">global</span> sendMailCount</span><br><span class="line">    now = int(time.time())</span><br><span class="line">    <span class="keyword">if</span> (lastSendmailTime == <span class="number">0</span> <span class="keyword">or</span> MIN_SEND_PERIOD_S &lt; (now - lastSendmailTime)) <span class="keyword">and</span> sendMailCount &lt; MAX_SEND_COUNT:</span><br><span class="line">        ret = doSendMail(<span class="string">'sender@163.com'</span>, <span class="string">'token'</span>, <span class="string">'receiver@163.com'</span>, <span class="string">'waring!!!'</span>)</span><br><span class="line">        <span class="keyword">if</span> ret:</span><br><span class="line">            lastSendmailTime = now</span><br><span class="line">            sendMailCount += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">doSendMail</span><span class="params">(sender, sender_token, receiver, content)</span>:</span></span><br><span class="line">    smtp_host = <span class="string">"smtp.163.com"</span></span><br><span class="line">    smtp_port = <span class="number">465</span></span><br><span class="line">    message = MIMEText(content, <span class="string">'plain'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">    message[<span class="string">'Subject'</span>] = Header(<span class="string">'[MONITOR]'</span>, <span class="string">'utf-8'</span>)</span><br><span class="line">    message[<span class="string">'From'</span>] = formataddr([<span class="string">"[RASP-001]"</span>, sender])</span><br><span class="line">    message[<span class="string">'To'</span>] = formataddr([<span class="string">"[MONITOR CENTER]"</span>, receiver])</span><br><span class="line">    <span class="keyword">try</span>:</span><br><span class="line">        server = smtplib.SMTP_SSL(smtp_host, smtp_port)</span><br><span class="line">        server.login(sender, sender_token)</span><br><span class="line">        server.sendmail(sender, [receiver], message.as_string())</span><br><span class="line">        server.quit()</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">True</span></span><br><span class="line">    <span class="keyword">except</span> smtplib.SMTPException, e:</span><br><span class="line">        print(traceback.format_exc())</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">False</span></span><br><span class="line"></span><br><span class="line">channel = <span class="number">12</span></span><br><span class="line">setupTime = int(time.time())</span><br><span class="line">lastSendmailTime = <span class="number">0</span></span><br><span class="line">sendMailCount = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">GPIO.setmode(GPIO.BOARD)</span><br><span class="line">GPIO.setup(channel, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)</span><br><span class="line"></span><br><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        stat = GPIO.input(channel)</span><br><span class="line">        print(<span class="string">"current gpio %d stat %d"</span> % (channel,stat))</span><br><span class="line">            checkSendMail()</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            sendMailCount = <span class="number">0</span></span><br><span class="line">        time.sleep(<span class="number">1</span>)</span><br><span class="line"><span class="keyword">except</span> KeyboardInterrupt:</span><br><span class="line">    GPIO.cleanup()</span><br></pre></td></tr></table></figure>
 <h2 id="Notes"><a href="#Notes" class="headerlink" title=" Notes"></a><strong><img class="github-emoji" style="display:inline;vertical-align:text-bottom" title="point_right" alt="point_right" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f449.png?v8" height="20" width="20"> Notes</strong></h2><ul>
-<li>item 175 of HAKMEM<br><img src="img/hakmem175.png" alt="hakmem175"></li>
+<li><a href="https://sourceforge.net/p/raspberry-gpio-python/wiki/Home/" target="_blank" rel="noopener">RPi.GPIO wiki</a></li>
+<li>SMTP 的 demo 中， <code>sender_token</code> 是电子邮件服务中开启 SMTP 协议后提供的口令而非邮箱登录密码</li>
 </ul>
 
       
@@ -237,11 +225,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">HD</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Hardware</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Computer</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Raspberry pi</a>
         		</li>
       		
 		</ul>
@@ -297,7 +285,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http:fidiots.github.io/2018-03-31/HD-0x01-Bits/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http:fidiots.github.io/2018-04-22/RPi-0x01-监视-GPIO-并发送邮件/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -311,15 +299,11 @@
   
 <nav id="article-nav">
   
-    <a href="/2018-04-22/RPi-0x01-监视-GPIO-并发送邮件/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          RPi - 0x01 监视 GPIO 并发送邮件
-        
-      </div>
-    </a>
   
+    <a href="/2018-03-31/HD-0x01-Bits/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">HD - 0x01 Bits $1111^2 = 11100001$</div>
+      <i class="icon-circle-right"></i>
+    </a>
   
 </nav>
 
@@ -344,7 +328,7 @@
                 </span>
                 <span class="tooltip-content">
                     <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#最右边那个"><span class="toc-number">1.</span> <span class="toc-text">最右边那个</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#位操作在集合运算中"><span class="toc-number">2.</span> <span class="toc-text">位操作在集合运算中</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Notes"><span class="toc-number">3.</span> <span class="toc-text"> Notes</span></a></li></ol>
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#GPIO-口的配置与读取"><span class="toc-number">1.</span> <span class="toc-text">GPIO 口的配置与读取</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#PRi-GPIO"><span class="toc-number">1.1.</span> <span class="toc-text">PRi.GPIO</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#电平检测"><span class="toc-number">1.1.1.</span> <span class="toc-text">电平检测</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#沿检测"><span class="toc-number">1.1.2.</span> <span class="toc-text">沿检测</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SMTP-发送邮件"><span class="toc-number">2.</span> <span class="toc-text">SMTP 发送邮件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#把-RPi-GPIO-和-SMTP-以面向过程的方式揉在一起"><span class="toc-number">3.</span> <span class="toc-text">把 RPi.GPIO 和 SMTP 以面向过程的方式揉在一起</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Notes"><span class="toc-number">4.</span> <span class="toc-text"> Notes</span></a></li></ol>
                     </div>
                 </span>
             </div>
