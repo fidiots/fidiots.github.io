@@ -144,6 +144,93 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-SSH-0x01-a-Simple-SSH-Guide" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018-05-01/SSH-0x01-a-Simple-SSH-Guide/">SSH - 0x01 a Simple SSH Guide</a>
+    </h1>
+  
+
+        
+        <a href="/2018-05-01/SSH-0x01-a-Simple-SSH-Guide/" class="archive-article-date">
+  	<time datetime="2018-05-01T01:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>你加入 Keep 已满 1000 天，完成过 3 次腹肌撕裂者<br>— Keep</p>
+</blockquote>
+<p>在相当长的一段时间里，我用的梯子是 <code>ssh -qTfnN -D 8880  54bf09144382ec803900004c@wp-tribf.rhcloud.com</code> 这样一条命令。最近遇到一个问题我需要内网穿透，对于这样的一个临时需求 SSH 最合适不过了，不需要跟客户要他们的 VPN 登录。借这个机会正好把 SSH 简短的总结一下。</p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="密码登录"><a href="#密码登录" class="headerlink" title="密码登录"></a>密码登录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh user@host</span><br><span class="line"><span class="comment"># 如果本地用户名与远程用户名一致，登录时可以省略用户名</span></span><br><span class="line">ssh host</span><br><span class="line"><span class="comment"># 指定端口登录</span></span><br><span class="line">ssh -p 2222 user@host</span><br></pre></td></tr></table></figure>
+<h3 id="公钥登录"><a href="#公钥登录" class="headerlink" title="公钥登录"></a>公钥登录</h3><p>密码登录需要用户手动输入密码会非常麻烦，特别是由生成器生成的超长随机密码（<code>cat /dev/urandom |tr -dc a-zA-Z1-9 | head -c${1:-32}</code>），使用公钥登录就解决了上面的窘境。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果没有公钥的话使用 ssh-keygen 生成一个</span></span><br><span class="line">ssh-keygen -t rsa -P <span class="string">''</span></span><br><span class="line"><span class="comment"># 使用 ssh-copy-id 拷贝自己的公钥到服务器上（是时候跟上面那个超长的密码再见了）</span></span><br><span class="line">ssh-copy-id user@host</span><br><span class="line"><span class="comment"># 一般我们会管理多个密钥，copy 时需要指定公钥</span></span><br><span class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub user@host</span><br></pre></td></tr></table></figure>
+<p>阅读 <code>ssh-copy-di</code> 脚本的源码可以发现所做的事可以概括为<code>cat ~/.ssh/id_rsa.pub | ssh user@example.com &quot;exec sh -c &#39;cd ; umask 077 ; mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys&quot;</code></p>
+        
+          <a class="article-more-a" href="/2018-05-01/SSH-0x01-a-Simple-SSH-Guide/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018-05-01/SSH-0x01-a-Simple-SSH-Guide/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-RPi-0x01-监视-GPIO-并发送邮件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -434,15 +521,11 @@ MathJax.Hub.Queue(function() {
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">HD</a>
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">C</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Computer</a>
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -454,7 +537,11 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Raspberry pi</a>
+                <a href="javascript:void(0)" class="js-tag color3">HD</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">Computer</a>
               </li>
             
             <div class="clearfix"></div>

@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="fidiots.github.io">
-  <title>Tag: Computer | Fidiots</title>
+  <title>SSH - 0x01 a Simple SSH Guide | Fidiots</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Fidiots">
-<meta property="og:url" content="fidiots.github.io/tags/Computer/index.html">
+  <meta name="description" content="你加入 Keep 已满 1000 天，完成过 3 次腹肌撕裂者— Keep  在相当长的一段时间里，我用的梯子是 ssh -qTfnN -D 8880  54bf09144382ec803900004c@wp-tribf.rhcloud.com 这样一条命令。最近遇到一个问题我需要内网穿透，对于这样的一个临时需求 SSH 最合适不过了，不需要跟客户要他们的 VPN 登录。借这个机会正好把 SSH">
+<meta name="keywords" content="Linux,SSH">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SSH - 0x01 a Simple SSH Guide">
+<meta property="og:url" content="fidiots.github.io/2018-05-01/SSH-0x01-a-Simple-SSH-Guide/index.html">
 <meta property="og:site_name" content="Fidiots">
+<meta property="og:description" content="你加入 Keep 已满 1000 天，完成过 3 次腹肌撕裂者— Keep  在相当长的一段时间里，我用的梯子是 ssh -qTfnN -D 8880  54bf09144382ec803900004c@wp-tribf.rhcloud.com 这样一条命令。最近遇到一个问题我需要内网穿透，对于这样的一个临时需求 SSH 最合适不过了，不需要跟客户要他们的 VPN 登录。借这个机会正好把 SSH">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f449.png?v8">
+<meta property="og:updated_time" content="2018-05-01T03:42:59.165Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fidiots">
+<meta name="twitter:title" content="SSH - 0x01 a Simple SSH Guide">
+<meta name="twitter:description" content="你加入 Keep 已满 1000 天，完成过 3 次腹肌撕裂者— Keep  在相当长的一段时间里，我用的梯子是 ssh -qTfnN -D 8880  54bf09144382ec803900004c@wp-tribf.rhcloud.com 这样一条命令。最近遇到一个问题我需要内网穿透，对于这样的一个临时需求 SSH 最合适不过了，不需要跟客户要他们的 VPN 登录。借这个机会正好把 SSH">
+<meta name="twitter:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f449.png?v8">
   
     <link rel="alternative" href="/atom.xml" title="Fidiots" type="application/atom+xml">
   
@@ -142,64 +149,207 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-SSH-0x01-a-Simple-SSH-Guide" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018-03-31/HD-0x01-Bits/" class="archive-article-date">
-  	<time datetime="2018-03-31T06:53:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018-03-31/HD-0x01-Bits/">HD - 0x01 Bits $1111^2 = 11100001$</a>
+    <h1 class="article-title" itemprop="name">
+      SSH - 0x01 a Simple SSH Guide
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018-05-01/SSH-0x01-a-Simple-SSH-Guide/" class="archive-article-date">
+  	<time datetime="2018-05-01T01:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-01</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>你加入 Keep 已满 1000 天，完成过 3 次腹肌撕裂者<br>— Keep</p>
+</blockquote>
+<p>在相当长的一段时间里，我用的梯子是 <code>ssh -qTfnN -D 8880  54bf09144382ec803900004c@wp-tribf.rhcloud.com</code> 这样一条命令。最近遇到一个问题我需要内网穿透，对于这样的一个临时需求 SSH 最合适不过了，不需要跟客户要他们的 VPN 登录。借这个机会正好把 SSH 简短的总结一下。</p>
+<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="密码登录"><a href="#密码登录" class="headerlink" title="密码登录"></a>密码登录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh user@host</span><br><span class="line"><span class="comment"># 如果本地用户名与远程用户名一致，登录时可以省略用户名</span></span><br><span class="line">ssh host</span><br><span class="line"><span class="comment"># 指定端口登录</span></span><br><span class="line">ssh -p 2222 user@host</span><br></pre></td></tr></table></figure>
+<h3 id="公钥登录"><a href="#公钥登录" class="headerlink" title="公钥登录"></a>公钥登录</h3><p>密码登录需要用户手动输入密码会非常麻烦，特别是由生成器生成的超长随机密码（<code>cat /dev/urandom |tr -dc a-zA-Z1-9 | head -c${1:-32}</code>），使用公钥登录就解决了上面的窘境。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果没有公钥的话使用 ssh-keygen 生成一个</span></span><br><span class="line">ssh-keygen -t rsa -P <span class="string">''</span></span><br><span class="line"><span class="comment"># 使用 ssh-copy-id 拷贝自己的公钥到服务器上（是时候跟上面那个超长的密码再见了）</span></span><br><span class="line">ssh-copy-id user@host</span><br><span class="line"><span class="comment"># 一般我们会管理多个密钥，copy 时需要指定公钥</span></span><br><span class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub user@host</span><br></pre></td></tr></table></figure>
+<p>阅读 <code>ssh-copy-di</code> 脚本的源码可以发现所做的事可以概括为<code>cat ~/.ssh/id_rsa.pub | ssh user@example.com &quot;exec sh -c &#39;cd ; umask 077 ; mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys&quot;</code></p>
+<a id="more"></a>
+<h2 id="高级用法"><a href="#高级用法" class="headerlink" title="高级用法"></a>高级用法</h2><h3 id="ssh-文件收发"><a href="#ssh-文件收发" class="headerlink" title="ssh 文件收发"></a>ssh 文件收发</h3><p>什么时候会使用这里的命令呢？连<code>rsync</code>,<code>scp</code>都没得用了？？ 可能吧！！！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># ssh 发送文件</span></span><br><span class="line"><span class="built_in">cd</span> &amp;&amp; tar czv src | ssh example.com <span class="string">'tar xz'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># ssh 接收文件</span></span><br><span class="line">mkdir -p ~/backup/ &amp;&amp; <span class="built_in">cd</span> !$</span><br><span class="line">ssh example.com <span class="string">'cd public_html &amp;&amp; tar cz example.com'</span> | tar xzv</span><br></pre></td></tr></table></figure></p>
+<h3 id="动态端口转发"><a href="#动态端口转发" class="headerlink" title="动态端口转发"></a>动态端口转发</h3><p>根据 <code>man ssh</code> 手册显示, <code>-D</code> 选项目前可以支持 <code>SOCKS4</code>, <code>SOCKS5</code> 协议。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用动态端口转发给自己搭建一个 SS 服务器</span></span><br><span class="line">ssh -qTfnN -D 0.0.0.0:8880  54bf09144382ec803900004c@wp-tribf.rhcloud.com</span><br></pre></td></tr></table></figure></p>
+<h3 id="ssh-本地端口转发"><a href="#ssh-本地端口转发" class="headerlink" title="ssh 本地端口转发"></a>ssh 本地端口转发</h3><p>假设 <code>host1</code> 想访问 <code>host2</code> 的服务，可是网络等原因 <code>host1</code> 甚至不能路由到 <code>host2</code>。不过好在有一台<code>host3</code>在两者之间作为桥梁。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 在 host1 上运行下面的命令，即在 host1 上绑定了 host1_port，之后所有来自该接口的数据都会经 host3 转发到 host2:host2_port</span></span><br><span class="line"><span class="comment"># 无形之间在 host1:host1_port 和 host2:host2_port 之间打开了一条“隧道”</span></span><br><span class="line">ssh -fNg -o serveraliveinterval=60 -p 22 -L host1_port:host2:host2_port user@host3</span><br><span class="line"><span class="comment"># -g 对于 multiplexed connection 需要开启</span></span><br><span class="line"><span class="comment"># -L 本地端口:目标主机:目标主机端口，目标主机是相对于 host3 而言</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="ssh-远程端口转发"><a href="#ssh-远程端口转发" class="headerlink" title="ssh 远程端口转发"></a>ssh 远程端口转发</h3><p>开篇说的解决内网穿透问题的解就在这里了，我们还是希望借助 <code>host3</code> 使得 <code>host1</code> 访问 <code>host2</code>。可是此时 <code>host3</code> 在内网，而 <code>host1</code> 在外网。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 登录 host3， 运行下面的命令，使 host1 监听 host1_port 端口，然后将所有数据经由 host3，转发到 host2 的 host2_port 端口</span></span><br><span class="line">ssh -CqTfnN -R host1_port:host2:host2_port user@host1</span><br><span class="line"><span class="comment"># -R 远程主机端口:目标主机:目标主机端口， 目标主机是相对于 host1 而言如</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="ssh-远程执行命令"><a href="#ssh-远程执行命令" class="headerlink" title="ssh 远程执行命令"></a>ssh 远程执行命令</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看服务器 httpd 进程是否在</span></span><br><span class="line">ssh user@host <span class="string">'ps ax | grep [h]ttpd'</span></span><br><span class="line"><span class="comment"># 如果运行的命令需要有 TTY 可以使用 -t 选项</span></span><br><span class="line">ssh -t user@host <span class="string">'cmdline'</span></span><br></pre></td></tr></table></figure>
+<h3 id="ssh-转发远程-vnc-server"><a href="#ssh-转发远程-vnc-server" class="headerlink" title="ssh 转发远程 vnc server"></a>ssh 转发远程 vnc server</h3><p>运行 vncserver 的时候只绑定到 localhost 而非 0.0.0.0，后面将 vnc 默认的 5901 端口使用本地端口转发出去从而享有 ssh 带来的安全。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># remote host2， the vnc server listening on localhost:5901</span></span><br><span class="line">vncserver -localhost -geometry WIDTHxHEIGHT -SecurityTypes None</span><br><span class="line"><span class="comment"># local forword host1</span></span><br><span class="line">ssh -CqTfnNT -o TCPKeepAlive=yes -o ServerAliveInterval=10 -o ServerAliveCountMax=10 -L 5901:localhost:5901 user@host2</span><br><span class="line">gvncviewer :1</span><br></pre></td></tr></table></figure></p>
+<h2 id="ssh-常用选项"><a href="#ssh-常用选项" class="headerlink" title="ssh 常用选项"></a>ssh 常用选项</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-l 指定登入用户</span><br><span class="line">-p 设置端口号</span><br><span class="line">-f 后台运行，并推荐加上 -n 参数</span><br><span class="line">-C 使能压缩</span><br><span class="line">-n 将标准输入重定向到 /dev/null，防止读取标准输入</span><br><span class="line">-N 不执行远程命令，不打开 shell，只做端口转发</span><br><span class="line">-q 安静模式，忽略一切对话和错误提示</span><br><span class="line">-T 禁用伪终端配置，不分配　TTY</span><br><span class="line">-X ssh X11 转发</span><br></pre></td></tr></table></figure>
+<h2 id="sshd-配置"><a href="#sshd-配置" class="headerlink" title="sshd 配置"></a>sshd 配置</h2><p>使用 <code>sudo vim /etc/ssh/sshd_config</code> 修改 ssh 服务器的配置，修改后使用 <code>sudo service ssh restart</code> 重启 sshd 服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 配置认证</span><br><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br><span class="line">AuthorizedKeysFile .ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"># 允许 root 用户远程登录</span><br><span class="line"># PermitRootLogin without-password</span><br><span class="line">PermitRootLogin yes</span><br><span class="line"></span><br><span class="line"># 设置 ssh 长连接</span><br><span class="line"># 每1分钟发送一个心跳信号给客户端</span><br><span class="line">ClientAliveInterval 60</span><br><span class="line"># 最大超时次数,客户端不响应则关闭连接</span><br><span class="line">ClientAliveCountMax 3</span><br></pre></td></tr></table></figure>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title=" Notes"></a><strong><img class="github-emoji" style="display:inline;vertical-align:text-bottom" title="point_right" alt="point_right" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f449.png?v8" height="20" width="20"> Notes</strong></h2><p>不像 https 协议，ssh 协议的公钥是没有证书中心（CA）公证的，会有中间人攻击的风险</p>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">HD</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Computer</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http:fidiots.github.io/2018-05-01/SSH-0x01-a-Simple-SSH-Guide/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018-04-22/RPi-0x01-监视-GPIO-并发送邮件/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">RPi - 0x01 监视 GPIO 并发送邮件</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#基本用法"><span class="toc-number">1.</span> <span class="toc-text">基本用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#密码登录"><span class="toc-number">1.1.</span> <span class="toc-text">密码登录</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#公钥登录"><span class="toc-number">1.2.</span> <span class="toc-text">公钥登录</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#高级用法"><span class="toc-number">2.</span> <span class="toc-text">高级用法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh-文件收发"><span class="toc-number">2.1.</span> <span class="toc-text">ssh 文件收发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#动态端口转发"><span class="toc-number">2.2.</span> <span class="toc-text">动态端口转发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh-本地端口转发"><span class="toc-number">2.3.</span> <span class="toc-text">ssh 本地端口转发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh-远程端口转发"><span class="toc-number">2.4.</span> <span class="toc-text">ssh 远程端口转发</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh-远程执行命令"><span class="toc-number">2.5.</span> <span class="toc-text">ssh 远程执行命令</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ssh-转发远程-vnc-server"><span class="toc-number">2.6.</span> <span class="toc-text">ssh 转发远程 vnc server</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ssh-常用选项"><span class="toc-number">3.</span> <span class="toc-text">ssh 常用选项</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#sshd-配置"><span class="toc-number">4.</span> <span class="toc-text">sshd 配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Notes"><span class="toc-number">5.</span> <span class="toc-text"> Notes</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
+    </div>
+</aside>
+
+
+
+  
+  
   
 
-    
+  
+
+  
+
+  
 
 
           </div>
@@ -222,9 +372,9 @@
 	var yiliaConfig = {
 		mathjax: [object Object],
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
