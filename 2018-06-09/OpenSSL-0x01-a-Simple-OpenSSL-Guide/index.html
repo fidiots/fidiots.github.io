@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="fidiots.github.io">
-  <title>Fidiots</title>
+  <title>OpenSSL - 0x01 a Simple OpenSSL Guide | Fidiots</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Fidiots">
-<meta property="og:url" content="fidiots.github.io/index.html">
+  <meta name="description" content="God never made a promise that was too good to be true— Dwight L. Moody  之前关于 SSH 的使用写了一个 A-Simple-SSH-Guide。通过组合使用里面的三种端口转发功能，可以完成内网到内网的 安全 连接。下面就简单的探索一下保证安全的基础 OpenSSL。重点使用 OpenSSL 给我们的数据加密。 !!! 检查并">
+<meta name="keywords" content="Linux,OpenSSL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenSSL - 0x01 a Simple OpenSSL Guide">
+<meta property="og:url" content="fidiots.github.io/2018-06-09/OpenSSL-0x01-a-Simple-OpenSSL-Guide/index.html">
 <meta property="og:site_name" content="Fidiots">
+<meta property="og:description" content="God never made a promise that was too good to be true— Dwight L. Moody  之前关于 SSH 的使用写了一个 A-Simple-SSH-Guide。通过组合使用里面的三种端口转发功能，可以完成内网到内网的 安全 连接。下面就简单的探索一下保证安全的基础 OpenSSL。重点使用 OpenSSL 给我们的数据加密。 !!! 检查并">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f494.png?v8">
+<meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f449.png?v8">
+<meta property="og:updated_time" content="2018-06-09T10:13:18.120Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fidiots">
+<meta name="twitter:title" content="OpenSSL - 0x01 a Simple OpenSSL Guide">
+<meta name="twitter:description" content="God never made a promise that was too good to be true— Dwight L. Moody  之前关于 SSH 的使用写了一个 A-Simple-SSH-Guide。通过组合使用里面的三种端口转发功能，可以完成内网到内网的 安全 连接。下面就简单的探索一下保证安全的基础 OpenSSL。重点使用 OpenSSL 给我们的数据加密。 !!! 检查并">
+<meta name="twitter:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f494.png?v8">
   
     <link rel="alternative" href="/atom.xml" title="Fidiots" type="application/atom+xml">
   
@@ -142,16 +150,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-OpenSSL-0x01-a-Simple-OpenSSL-Guide" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-OpenSSL-0x01-a-Simple-OpenSSL-Guide" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018-06-09/OpenSSL-0x01-a-Simple-OpenSSL-Guide/">OpenSSL - 0x01 a Simple OpenSSL Guide</a>
+    <h1 class="article-title" itemprop="name">
+      OpenSSL - 0x01 a Simple OpenSSL Guide
     </h1>
   
 
@@ -195,6 +201,32 @@
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="/img/alipay.png">
+                      <span class="reward-type">支付宝</span>
+                    </div>
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -217,16 +249,75 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018-06-09/OpenSSL-0x01-a-Simple-OpenSSL-Guide/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http:fidiots.github.io/2018-06-09/OpenSSL-0x01-a-Simple-OpenSSL-Guide/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2018-05-01/SSH-0x01-a-Simple-SSH-Guide/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">SSH - 0x01 a Simple SSH Guide</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -241,276 +332,32 @@
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-SSH-0x01-a-Simple-SSH-Guide" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018-05-01/SSH-0x01-a-Simple-SSH-Guide/">SSH - 0x01 a Simple SSH Guide</a>
-    </h1>
-  
-
-        
-        <a href="/2018-05-01/SSH-0x01-a-Simple-SSH-Guide/" class="archive-article-date">
-  	<time datetime="2018-05-01T01:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>你加入 Keep 已满 1000 天，完成过 3 次腹肌撕裂者<br>— Keep</p>
-</blockquote>
-<p>在相当长的一段时间里，我用的梯子是 <code>ssh -qTfnN -D 8880  54bf09144382ec803900004c@wp-tribf.rhcloud.com</code> 这样一条命令。最近遇到一个问题我需要内网穿透，对于这样的一个临时需求 SSH 最合适不过了，不需要跟客户要他们的 VPN 登录。借这个机会正好把 SSH 简短的总结一下。</p>
-<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="密码登录"><a href="#密码登录" class="headerlink" title="密码登录"></a>密码登录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh user@host</span><br><span class="line"><span class="comment"># 如果本地用户名与远程用户名一致，登录时可以省略用户名</span></span><br><span class="line">ssh host</span><br><span class="line"><span class="comment"># 指定端口登录</span></span><br><span class="line">ssh -p 2222 user@host</span><br></pre></td></tr></table></figure>
-<h3 id="公钥登录"><a href="#公钥登录" class="headerlink" title="公钥登录"></a>公钥登录</h3><p>密码登录需要用户手动输入密码会非常麻烦，特别是由生成器生成的超长随机密码（<code>cat /dev/urandom |tr -dc a-zA-Z1-9 | head -c${1:-32}</code>），使用公钥登录就解决了上面的窘境。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果没有公钥的话使用 ssh-keygen 生成一个</span></span><br><span class="line">ssh-keygen -t rsa -P <span class="string">''</span></span><br><span class="line"><span class="comment"># 使用 ssh-copy-id 拷贝自己的公钥到服务器上（是时候跟上面那个超长的密码再见了）</span></span><br><span class="line">ssh-copy-id user@host</span><br><span class="line"><span class="comment"># 一般我们会管理多个密钥，copy 时需要指定公钥</span></span><br><span class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub user@host</span><br></pre></td></tr></table></figure>
-<p>阅读 <code>ssh-copy-di</code> 脚本的源码可以发现所做的事可以概括为<code>cat ~/.ssh/id_rsa.pub | ssh user@example.com &quot;exec sh -c &#39;cd ; umask 077 ; mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys&quot;</code></p>
-        
-          <a class="article-more-a" href="/2018-05-01/SSH-0x01-a-Simple-SSH-Guide/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018-05-01/SSH-0x01-a-Simple-SSH-Guide/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#检查并升级-OpenSSL"><span class="toc-number">1.</span> <span class="toc-text">!!! 检查并升级 OpenSSL</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对称加密"><span class="toc-number">2.</span> <span class="toc-text">对称加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非对称加密"><span class="toc-number">3.</span> <span class="toc-text">非对称加密</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#非对称加密大文件"><span class="toc-number">4.</span> <span class="toc-text">非对称加密大文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用-smime-和-X509-证书加密文件"><span class="toc-number">5.</span> <span class="toc-text">使用 smime 和 X509 证书加密文件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#对文件签名"><span class="toc-number">6.</span> <span class="toc-text">对文件签名</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Notes"><span class="toc-number">7.</span> <span class="toc-text"> Notes</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
   
-    <article id="post-RPi-0x01-监视-GPIO-并发送邮件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018-04-22/RPi-0x01-监视-GPIO-并发送邮件/">RPi - 0x01 监视 GPIO 并发送邮件</a>
-    </h1>
   
 
-        
-        <a href="/2018-04-22/RPi-0x01-监视-GPIO-并发送邮件/" class="archive-article-date">
-  	<time datetime="2018-04-22T12:31:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>我的目的是想说明，这一天空机器并不是一种天赐造物或者生命体，它只不过是钟表一类的机械装置（而那些相信钟表有灵魂的人却将这一工作说成是其创造者的荣耀），在很大程度上，这里多种多样的运动都是由最简单的物质力量产生的，就像钟表里所有活动都是由一个发条产生的一样。<br>— 约翰尼斯·开普勒（给 Herwart von Hohenburg 的信， 1605）</p>
-</blockquote>
-<p>受友人之托，在树莓派上加一个发送邮件进行报警的功能（监视 GPIO 口的高电平，然后邮件通知告警信息）。很简单的功能，主要涉及到 <strong>GPIO 口的配置与读取</strong>，<strong>发送邮件</strong> 两个功能，当然人生苦短（我用 Python）。</p>
-<h2 id="GPIO-口的配置与读取"><a href="#GPIO-口的配置与读取" class="headerlink" title="GPIO 口的配置与读取"></a>GPIO 口的配置与读取</h2><p>GPIO (General Purpose I/O Ports) 通用输入/输出口，用于树莓派与真实的物理世界进行交互（控制 LED、产生 PWM、接入外部中断、SPI、IIC …）。通过 GPIO 连接扩展板可以为树莓派接上更多的传感器和控制器，丰富树莓派的功能。</p>
-        
-          <a class="article-more-a" href="/2018-04-22/RPi-0x01-监视-GPIO-并发送邮件/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Hardware</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Raspberry</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018-04-22/RPi-0x01-监视-GPIO-并发送邮件/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-HD-0x01-Bits" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018-03-31/HD-0x01-Bits/">HD - 0x01 Bits $1111^2 = 11100001$</a>
-    </h1>
   
 
-        
-        <a href="/2018-03-31/HD-0x01-Bits/" class="archive-article-date">
-  	<time datetime="2018-03-31T06:53:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>once we get a name for it, we will get power over it!<br>— Patrick H. Winston</p>
-</blockquote>
-<h2 id="最右边那个"><a href="#最右边那个" class="headerlink" title="最右边那个"></a>最右边那个</h2><ul>
-<li>$x \&amp; (x - 1)$  将最右边的 1 置0（0101_1000 -&gt; 01010000），可用于快速判断 $2^n$</li>
-<li>$x \&amp; (x + 1)$ 可用于快速判断 $2^n -1$</li>
-<li>$x \&amp; (-x)$ 仅保留最右边的 1 （0101_1000 -&gt; 0000_1000）</li>
-<li>$\lnot x  \&amp; (x + 1)$ 保留最右边的 0 （1010_0111 -&gt; 0000_1000）</li>
-<li>$\lnot x \&amp; (x - 1), \lnot (x | -x), (x \&amp; -x) - 1$ 将最右边连续的 0 值 1 （0101_1000 -&gt; 0000_0111）</li>
-<li>$x \oplus (x - 1) $ 生成以右边第一个 1 开始的全 1 掩码 （0101_1000 -&gt; 0000_1111）</li>
-<li>$x | (x - 1)$ 将右边第一个 1 向右扩展 （0101_1000 -&gt; 0101_1111）</li>
-<li>$((x | (x - 1)) + 1) \&amp; x$ 将右边连续的 1 置 0 （0101_1000 -&gt; 0100_0000），可判断 $2^j - 2^k$</li>
-</ul>
-        
-          <a class="article-more-a" href="/2018-03-31/HD-0x01-Bits/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">HD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Computer</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018-03-31/HD-0x01-Bits/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
+
   
 
 
@@ -533,8 +380,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: [object Object],
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,

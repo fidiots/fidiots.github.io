@@ -17,7 +17,7 @@
 <meta property="og:description" content="你加入 Keep 已满 1000 天，完成过 3 次腹肌撕裂者— Keep  在相当长的一段时间里，我用的梯子是 ssh -qTfnN -D 8880  54bf09144382ec803900004c@wp-tribf.rhcloud.com 这样一条命令。最近遇到一个问题我需要内网穿透，对于这样的一个临时需求 SSH 最合适不过了，不需要跟客户要他们的 VPN 登录。借这个机会正好把 SSH">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://assets-cdn.github.com/images/icons/emoji/unicode/1f449.png?v8">
-<meta property="og:updated_time" content="2018-05-01T03:42:59.165Z">
+<meta property="og:updated_time" content="2018-05-14T01:04:58.186Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SSH - 0x01 a Simple SSH Guide">
 <meta name="twitter:description" content="你加入 Keep 已满 1000 天，完成过 3 次腹肌撕裂者— Keep  在相当长的一段时间里，我用的梯子是 ssh -qTfnN -D 8880  54bf09144382ec803900004c@wp-tribf.rhcloud.com 这样一条命令。最近遇到一个问题我需要内网穿透，对于这样的一个临时需求 SSH 最合适不过了，不需要跟客户要他们的 VPN 登录。借这个机会正好把 SSH">
@@ -187,7 +187,7 @@
 <h2 id="ssh-常用选项"><a href="#ssh-常用选项" class="headerlink" title="ssh 常用选项"></a>ssh 常用选项</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">-l 指定登入用户</span><br><span class="line">-p 设置端口号</span><br><span class="line">-f 后台运行，并推荐加上 -n 参数</span><br><span class="line">-C 使能压缩</span><br><span class="line">-n 将标准输入重定向到 /dev/null，防止读取标准输入</span><br><span class="line">-N 不执行远程命令，不打开 shell，只做端口转发</span><br><span class="line">-q 安静模式，忽略一切对话和错误提示</span><br><span class="line">-T 禁用伪终端配置，不分配　TTY</span><br><span class="line">-X ssh X11 转发</span><br></pre></td></tr></table></figure>
 <h2 id="sshd-配置"><a href="#sshd-配置" class="headerlink" title="sshd 配置"></a>sshd 配置</h2><p>使用 <code>sudo vim /etc/ssh/sshd_config</code> 修改 ssh 服务器的配置，修改后使用 <code>sudo service ssh restart</code> 重启 sshd 服务</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"># 配置认证</span><br><span class="line">RSAAuthentication yes</span><br><span class="line">PubkeyAuthentication yes</span><br><span class="line">AuthorizedKeysFile .ssh/authorized_keys</span><br><span class="line"></span><br><span class="line"># 允许 root 用户远程登录</span><br><span class="line"># PermitRootLogin without-password</span><br><span class="line">PermitRootLogin yes</span><br><span class="line"></span><br><span class="line"># 设置 ssh 长连接</span><br><span class="line"># 每1分钟发送一个心跳信号给客户端</span><br><span class="line">ClientAliveInterval 60</span><br><span class="line"># 最大超时次数,客户端不响应则关闭连接</span><br><span class="line">ClientAliveCountMax 3</span><br></pre></td></tr></table></figure>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title=" Notes"></a><strong><img class="github-emoji" style="display:inline;vertical-align:text-bottom" title="point_right" alt="point_right" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f449.png?v8" height="20" width="20"> Notes</strong></h2><p>不像 https 协议，ssh 协议的公钥是没有证书中心（CA）公证的，会有中间人攻击的风险</p>
+<h2 id="Notes"><a href="#Notes" class="headerlink" title=" Notes"></a><strong><img class="github-emoji" style="display:inline;vertical-align:text-bottom" title="point_right" alt="point_right" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f449.png?v8" height="20" width="20"> Notes</strong></h2><p>不像 https 协议，ssh 协议的公钥是没有证书中心（CA）公证的，会有中间人攻击的风险。为了使用方便，可以配置 <code>StrictHostKeyChecking no</code> 来关闭新主机的公钥检查</p>
 
       
 
@@ -300,6 +300,15 @@
 
   
 <nav id="article-nav">
+  
+    <a href="/2018-06-09/OpenSSL-0x01-a-Simple-OpenSSL-Guide/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          OpenSSL - 0x01 a Simple OpenSSL Guide
+        
+      </div>
+    </a>
   
   
     <a href="/2018-04-22/RPi-0x01-监视-GPIO-并发送邮件/" id="article-nav-older" class="article-nav-link-wrap">
@@ -471,6 +480,14 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">Hardware</a>
               </li>
              
@@ -479,11 +496,7 @@ MathJax.Hub.Queue(function() {
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Linux</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">SSH</a>
+                <a href="javascript:void(0)" class="js-tag color3">OpenSSL</a>
               </li>
             
             <div class="clearfix"></div>

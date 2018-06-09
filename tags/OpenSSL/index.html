@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="fidiots.github.io">
-  <title>Fidiots</title>
+  <title>Tag: OpenSSL | Fidiots</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="Fidiots">
-<meta property="og:url" content="fidiots.github.io/index.html">
+<meta property="og:url" content="fidiots.github.io/tags/OpenSSL/index.html">
 <meta property="og:site_name" content="Fidiots">
 <meta property="og:locale" content="default">
 <meta name="twitter:card" content="summary">
@@ -144,61 +144,34 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-OpenSSL-0x01-a-Simple-OpenSSL-Guide" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
     
-      <header class="article-header">
-        
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2018" class="archive-year">2018</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2018-06-09/OpenSSL-0x01-a-Simple-OpenSSL-Guide/" class="archive-article-date">
+  	<time datetime="2018-06-09T01:13:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-09</time>
+</a>
+        </div>
+    	 
   
     <h1 itemprop="name">
-      <a class="article-title" href="/2018-06-09/OpenSSL-0x01-a-Simple-OpenSSL-Guide/">OpenSSL - 0x01 a Simple OpenSSL Guide</a>
+      <a class="archive-article-title" href="/2018-06-09/OpenSSL-0x01-a-Simple-OpenSSL-Guide/">OpenSSL - 0x01 a Simple OpenSSL Guide</a>
     </h1>
   
 
-        
-        <a href="/2018-06-09/OpenSSL-0x01-a-Simple-OpenSSL-Guide/" class="archive-article-date">
-  	<time datetime="2018-06-09T01:13:51.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>God never made a promise that was too good to be true<br>— Dwight L. Moody</p>
-</blockquote>
-<p>之前关于 <code>SSH</code> 的使用写了一个 <a href="/2018-05-01/SSH-0x01-a-Simple-SSH-Guide/">A-Simple-SSH-Guide</a>。通过组合使用里面的三种端口转发功能，可以完成内网到内网的 <strong>安全</strong> 连接。下面就简单的探索一下保证安全的基础 <code>OpenSSL</code>。重点使用 <code>OpenSSL</code> 给我们的数据加密。</p>
-<h2 id="检查并升级-OpenSSL"><a href="#检查并升级-OpenSSL" class="headerlink" title="!!! 检查并升级 OpenSSL"></a><strong>!!!</strong> 检查并升级 OpenSSL</h2><p>使用 C 语言编写的 OpenSSL 之前报过令所有人  <strong><img class="github-emoji" style="display:inline;vertical-align:text-bottom" title="broken_heart" alt="broken_heart" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f494.png?v8" height="20" width="20"></strong> 的漏洞。在继续下面的操作前，务必确认当前使用的 OpenSSL 版本，如有不适请升级。(同时也请了解一下 <a href="https://github.com/mesalock-linux/mesalink" target="_blank" rel="noopener">MesaLink</a>)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">openssl version</span><br><span class="line"><span class="comment"># OpenSSL 1.0.2g  1 Mar 2016</span></span><br></pre></td></tr></table></figure></p>
-<h2 id="对称加密"><a href="#对称加密" class="headerlink" title="对称加密"></a>对称加密</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 准备文件</span></span><br><span class="line"><span class="built_in">echo</span> <span class="string">"hello openssl"</span> &gt; un_encrypted.data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加密（需要输入并确认密码）</span></span><br><span class="line">openssl enc -e -aes-256-cbc -<span class="keyword">in</span> un_encrypted.data -out encrypted.data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解密</span></span><br><span class="line">openssl enc -d -aes-256-cbc -<span class="keyword">in</span> encrypted.data -out decrypted.data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 校验</span></span><br><span class="line">sha256sum ./*</span><br><span class="line"><span class="comment"># 32a4652ec63b896e60e82bdecbcfe97394037243cb2c8e63d7dd79b0a7d4f383  ./decrypted.data</span></span><br><span class="line"><span class="comment"># 18f10384ff62bfd8217571bff25a5a529acd2a3de5e10760d33574b0f7c2b6df  ./encrypted.data</span></span><br><span class="line"><span class="comment"># 32a4652ec63b896e60e82bdecbcfe97394037243cb2c8e63d7dd79b0a7d4f383  ./un_encrypted.data</span></span><br></pre></td></tr></table></figure>
-<h2 id="非对称加密"><a href="#非对称加密" class="headerlink" title="非对称加密"></a>非对称加密</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 需要有公钥，为了演示新建一个密钥对</span></span><br><span class="line">openssl genrsa -aes256 -out private.key 8912</span><br><span class="line">openssl rsa -<span class="keyword">in</span> private.key -pubout -out public.key</span><br><span class="line"></span><br><span class="line"><span class="comment"># 加密</span></span><br><span class="line">openssl rsautl -encrypt -pubin -inkey public.key -<span class="keyword">in</span> un_encrypted.data -out encrypted.data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 解密</span></span><br><span class="line">openssl rsautl -decrypt -inkey private.key -<span class="keyword">in</span> encrypted.data -out decrypted.data</span><br><span class="line"></span><br><span class="line"><span class="comment">## 检验</span></span><br><span class="line">sha256sum ./*</span><br><span class="line"><span class="comment"># 32a4652ec63b896e60e82bdecbcfe97394037243cb2c8e63d7dd79b0a7d4f383  ./decrypted.data</span></span><br><span class="line"><span class="comment"># 3f1331cbcb4d601b4fd23e9d7363addf0a760523c65268559b74c80e5c81afbf  ./encrypted.data</span></span><br><span class="line"><span class="comment"># 469509a87630fb981919e800740df894059f80d8179e5e67d2c20cf758cd6b52  ./private.key</span></span><br><span class="line"><span class="comment"># 61eb793b6dea0d54733c2a5b9a33be7f7c1a8805a178bc275c25e2e2da5b7cd8  ./public.key</span></span><br><span class="line"><span class="comment"># 32a4652ec63b896e60e82bdecbcfe97394037243cb2c8e63d7dd79b0a7d4f383  ./un_encrypted.data</span></span><br></pre></td></tr></table></figure>
-<h2 id="非对称加密大文件"><a href="#非对称加密大文件" class="headerlink" title="非对称加密大文件"></a>非对称加密大文件</h2><p>使用 <code>rsautl</code> 进行非对称加密时无法加密大文件，如果要非对称加密大文件就需要结合对称加密</p>
-<ul>
-<li>生成一个随机密码 $key1$</li>
-<li>使用对方的公钥用 <code>rsautl</code> 加密 $key1$ 得到加密后的密码 $key2$</li>
-<li>使用 <code>enc</code> 和 $key1$ 加密大文件 $file$，得到加密后的文件 $file2$</li>
-<li>销毁 $key1$</li>
-<li>将 $key2$ 和 $file2$ 发送给对方</li>
-<li>对方需要根据自己的私钥解密 $key2$ 得到 $key1$，然后用 $key1$ 解密文件 $file2$</li>
-</ul>
-<h2 id="使用-smime-和-X509-证书加密文件"><a href="#使用-smime-和-X509-证书加密文件" class="headerlink" title="使用 smime 和 X509 证书加密文件"></a>使用 smime 和 X509 证书加密文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 生成证书</span></span><br><span class="line"><span class="comment"># 1. 生成证书</span></span><br><span class="line">openssl genrsa -aes256 -out private_key.pem 8912</span><br><span class="line">openssl req -x509 -nodes -days 100000 -newkey rsa:8912 -keyout private_key.pem -out certificate.pem</span><br><span class="line">openssl req -x509 -days 100000 -newkey rsa:8912 -keyout private_key.pem -out certificate.pem</span><br><span class="line">openssl req -x509 -new -days 100000 -key private_key.pem -out certificate.pem</span><br><span class="line"></span><br><span class="line"><span class="comment"># 导出公钥</span></span><br><span class="line">openssl rsa -<span class="keyword">in</span> private_key.pem -pubout -out public_key.pem</span><br><span class="line">openssl x509 -pubkey -noout -<span class="keyword">in</span> cert.pem &gt; pubkey.pem</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2. 加密</span></span><br><span class="line">openssl smime -encrypt -binary -aes-256-cbc -<span class="keyword">in</span> un_encrypted.data -out encrypted.data.enc -outform DER certificate.pem</span><br><span class="line">openssl smime -encrypt -aes-256-cbc -<span class="keyword">in</span> input.txt -out output.txt.enc -outform DER certificate.pem</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3. 解密</span></span><br><span class="line">openssl smime -decrypt -binary -<span class="keyword">in</span> encrypted.data.enc -inform DER -out decrypted.data -inkey private_key.pem</span><br><span class="line">openssl smime -decrypt -<span class="keyword">in</span> output.txt.enc -inform DER -out output.txt -inkey private_key.pem</span><br></pre></td></tr></table></figure>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打印证书内容</span></span><br><span class="line">openssl x509 -<span class="keyword">in</span> cert.pem -noout -text</span><br></pre></td></tr></table></figure>
-<h2 id="对文件签名"><a href="#对文件签名" class="headerlink" title="对文件签名"></a>对文件签名</h2><p>加密传输文件的时候,用自己的私钥对文件内容的 hash 进行加密（签名)，然后将签名一起发送出去。就可以保证对方接受到的文件是没有被篡改的。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 签名</span></span><br><span class="line">openssl dgst -sha256 -sign private_key.pem -out signature.sign un_encrypted.data</span><br><span class="line"></span><br><span class="line"><span class="comment"># 校验</span></span><br><span class="line">openssl dgst -sha256 -verify public_key.pem -signature signature.sign un_encrypted.data</span><br></pre></td></tr></table></figure>
-<h2 id="Notes"><a href="#Notes" class="headerlink" title=" Notes"></a><strong><img class="github-emoji" style="display:inline;vertical-align:text-bottom" title="point_right" alt="point_right" src="https://assets-cdn.github.com/images/icons/emoji/unicode/1f449.png?v8" height="20" width="20"> Notes</strong></h2><ul>
-<li><a href="https://www.openssl.org" target="_blank" rel="noopener">OpenSSL</a></li>
-<li>本文严重参考 <a href="https://gist.github.com/dreikanter/c7e85598664901afae03fedff308736b" target="_blank" rel="noopener">encrypt_openssl.md</a></li>
-<li>使用对称加密时默认开启随机 <code>-salt</code> 选项，保存同样的明文，同样的密码输出不一样的加密文件</li>
-<li>加密解密过程中务必校验文件的 hash</li>
-<li>尽可能的使用 <code>smime</code></li>
-</ul>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -214,304 +187,19 @@
 		</ul>
 	</div>
 
-      
+          
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018-06-09/OpenSSL-0x01-a-Simple-OpenSSL-Guide/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
+        </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
-    <article id="post-SSH-0x01-a-Simple-SSH-Guide" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
+  
+    </div></section>
+  
+
     
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018-05-01/SSH-0x01-a-Simple-SSH-Guide/">SSH - 0x01 a Simple SSH Guide</a>
-    </h1>
-  
-
-        
-        <a href="/2018-05-01/SSH-0x01-a-Simple-SSH-Guide/" class="archive-article-date">
-  	<time datetime="2018-05-01T01:23:37.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-01</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>你加入 Keep 已满 1000 天，完成过 3 次腹肌撕裂者<br>— Keep</p>
-</blockquote>
-<p>在相当长的一段时间里，我用的梯子是 <code>ssh -qTfnN -D 8880  54bf09144382ec803900004c@wp-tribf.rhcloud.com</code> 这样一条命令。最近遇到一个问题我需要内网穿透，对于这样的一个临时需求 SSH 最合适不过了，不需要跟客户要他们的 VPN 登录。借这个机会正好把 SSH 简短的总结一下。</p>
-<h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><h3 id="密码登录"><a href="#密码登录" class="headerlink" title="密码登录"></a>密码登录</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ssh user@host</span><br><span class="line"><span class="comment"># 如果本地用户名与远程用户名一致，登录时可以省略用户名</span></span><br><span class="line">ssh host</span><br><span class="line"><span class="comment"># 指定端口登录</span></span><br><span class="line">ssh -p 2222 user@host</span><br></pre></td></tr></table></figure>
-<h3 id="公钥登录"><a href="#公钥登录" class="headerlink" title="公钥登录"></a>公钥登录</h3><p>密码登录需要用户手动输入密码会非常麻烦，特别是由生成器生成的超长随机密码（<code>cat /dev/urandom |tr -dc a-zA-Z1-9 | head -c${1:-32}</code>），使用公钥登录就解决了上面的窘境。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 如果没有公钥的话使用 ssh-keygen 生成一个</span></span><br><span class="line">ssh-keygen -t rsa -P <span class="string">''</span></span><br><span class="line"><span class="comment"># 使用 ssh-copy-id 拷贝自己的公钥到服务器上（是时候跟上面那个超长的密码再见了）</span></span><br><span class="line">ssh-copy-id user@host</span><br><span class="line"><span class="comment"># 一般我们会管理多个密钥，copy 时需要指定公钥</span></span><br><span class="line">ssh-copy-id -i ~/.ssh/id_rsa.pub user@host</span><br></pre></td></tr></table></figure>
-<p>阅读 <code>ssh-copy-di</code> 脚本的源码可以发现所做的事可以概括为<code>cat ~/.ssh/id_rsa.pub | ssh user@example.com &quot;exec sh -c &#39;cd ; umask 077 ; mkdir -p .ssh &amp;&amp; cat &gt;&gt; .ssh/authorized_keys&quot;</code></p>
-        
-          <a class="article-more-a" href="/2018-05-01/SSH-0x01-a-Simple-SSH-Guide/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">Linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">SSH</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018-05-01/SSH-0x01-a-Simple-SSH-Guide/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-RPi-0x01-监视-GPIO-并发送邮件" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018-04-22/RPi-0x01-监视-GPIO-并发送邮件/">RPi - 0x01 监视 GPIO 并发送邮件</a>
-    </h1>
-  
-
-        
-        <a href="/2018-04-22/RPi-0x01-监视-GPIO-并发送邮件/" class="archive-article-date">
-  	<time datetime="2018-04-22T12:31:13.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-04-22</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>我的目的是想说明，这一天空机器并不是一种天赐造物或者生命体，它只不过是钟表一类的机械装置（而那些相信钟表有灵魂的人却将这一工作说成是其创造者的荣耀），在很大程度上，这里多种多样的运动都是由最简单的物质力量产生的，就像钟表里所有活动都是由一个发条产生的一样。<br>— 约翰尼斯·开普勒（给 Herwart von Hohenburg 的信， 1605）</p>
-</blockquote>
-<p>受友人之托，在树莓派上加一个发送邮件进行报警的功能（监视 GPIO 口的高电平，然后邮件通知告警信息）。很简单的功能，主要涉及到 <strong>GPIO 口的配置与读取</strong>，<strong>发送邮件</strong> 两个功能，当然人生苦短（我用 Python）。</p>
-<h2 id="GPIO-口的配置与读取"><a href="#GPIO-口的配置与读取" class="headerlink" title="GPIO 口的配置与读取"></a>GPIO 口的配置与读取</h2><p>GPIO (General Purpose I/O Ports) 通用输入/输出口，用于树莓派与真实的物理世界进行交互（控制 LED、产生 PWM、接入外部中断、SPI、IIC …）。通过 GPIO 连接扩展板可以为树莓派接上更多的传感器和控制器，丰富树莓派的功能。</p>
-        
-          <a class="article-more-a" href="/2018-04-22/RPi-0x01-监视-GPIO-并发送邮件/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Hardware</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Raspberry</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018-04-22/RPi-0x01-监视-GPIO-并发送邮件/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-HD-0x01-Bits" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2018-03-31/HD-0x01-Bits/">HD - 0x01 Bits $1111^2 = 11100001$</a>
-    </h1>
-  
-
-        
-        <a href="/2018-03-31/HD-0x01-Bits/" class="archive-article-date">
-  	<time datetime="2018-03-31T06:53:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-03-31</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <blockquote>
-<p>once we get a name for it, we will get power over it!<br>— Patrick H. Winston</p>
-</blockquote>
-<h2 id="最右边那个"><a href="#最右边那个" class="headerlink" title="最右边那个"></a>最右边那个</h2><ul>
-<li>$x \&amp; (x - 1)$  将最右边的 1 置0（0101_1000 -&gt; 01010000），可用于快速判断 $2^n$</li>
-<li>$x \&amp; (x + 1)$ 可用于快速判断 $2^n -1$</li>
-<li>$x \&amp; (-x)$ 仅保留最右边的 1 （0101_1000 -&gt; 0000_1000）</li>
-<li>$\lnot x  \&amp; (x + 1)$ 保留最右边的 0 （1010_0111 -&gt; 0000_1000）</li>
-<li>$\lnot x \&amp; (x - 1), \lnot (x | -x), (x \&amp; -x) - 1$ 将最右边连续的 0 值 1 （0101_1000 -&gt; 0000_0111）</li>
-<li>$x \oplus (x - 1) $ 生成以右边第一个 1 开始的全 1 掩码 （0101_1000 -&gt; 0000_1111）</li>
-<li>$x | (x - 1)$ 将右边第一个 1 向右扩展 （0101_1000 -&gt; 0101_1111）</li>
-<li>$((x | (x - 1)) + 1) \&amp; x$ 将右边连续的 1 置 0 （0101_1000 -&gt; 0100_0000），可判断 $2^j - 2^k$</li>
-</ul>
-        
-          <a class="article-more-a" href="/2018-03-31/HD-0x01-Bits/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">HD</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Computer</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2018-03-31/HD-0x01-Bits/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-  
 
 
           </div>
@@ -533,10 +221,10 @@
     <script>
 	var yiliaConfig = {
 		mathjax: [object Object],
-		isHome: true,
+		isHome: false,
 		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
